@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Workit Landing Page
 
-## Getting Started
+Landing page Workit yang responsif untuk perangkat mobile, tablet, dan desktop.
+Proyek ini dibuat sebagai bahan untuk Technical Skill Test.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js => React framework untuk membangun aplikasi.
+- React => Membangun antarmuka berbasis komponen
+- Tailwind CSS => CSS framework untuk styling.
+- Typescript => Memeriksa tipe data saat pengembangan
+- Framer Motion => Animasi Viewport
+- pnpm v11.5.2 => Package Manager
+
+## Installation Steps
+
+!IMPORTANT! Pastikan Node.js dan pnpm sudah terinstall.
+Node.js yang digunakan dalam project ini adalah v26.0.0
+
+Clone Repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/AfifSatrio/workit-landing-page.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Masuk ke folder proyek:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd workit-landing-page
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependensi:
 
-## Learn More
+```bash
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Jalankan development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Buka [http://localhost:3000] pada browser.
 
-## Deploy on Vercel
+## Error Handling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Konten bertumpuk pada layar mobile
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Tinggi section berbasis viewport dan pengaturan posisi tetap membuat
+konten keluar dari ruang yang tersedia. Perbaikannya adalah membiarkan
+tinggi section mengikuti konten dan menggunakan layout responsif agar
+bagian berikutnya tetap berada pada posisi yang sesuai.
+
+### Foto founder terlalu kecil
+
+Foto berada di dalam grid 12 kolom, tetapi elemen pembungkusnya tidak
+memiliki pengaturan rentang kolom yang sesuai. Lebar berbasis persentase
+kemudian membuat foto semakin kecil.
+
+Perbaikannya adalah mengatur foto agar menempati lima kolom pada layar
+tablet dan desktop, serta membuat gambar mengikuti lebar pembungkusnya.
+
+### Favicon tidak muncul
+
+File ikon perlu mengikuti penamaan yang dikenali Next.js.
+Favicon ditempatkan sebagai `app/icon.png` agar Next.js otomatis
+menambahkannya ke metadata halaman.
+
+## Pemeriksaan Proyek
+
+Jalankan lint untuk memeriksa masalah kode:
+
+```bash
+pnpm lint
+```

@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const fraunces = localFont({
+  src: "../public/assets/fonts/fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf",
+  variable: "--font-fraunces-family",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const manrope = localFont({
+  src: "../public/assets/fonts/manrope/Manrope-VariableFont_wght.ttf",
+  variable: "--font-manrope-family",
+  display: "swap",
 });
+
+const frauncesStatic = localFont({
+  src: "../public/assets/fonts/fraunces/static/Fraunces_144pt-SemiBold.ttf",
+  variable: "--font-fraunces-semibold-family",
+  weight: "600",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,9 +30,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${manrope.variable} ${frauncesStatic.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }
